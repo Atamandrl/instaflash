@@ -1,3 +1,4 @@
+
 # InstaFlash Backend
 
 FastAPI tabanlı backend uygulaması.  
@@ -8,138 +9,103 @@ Flutter mobil uygulaması bu servisi kullanır.
 
 ## 🚀 Kurulum Adımları
 
-### 1️⃣ Proje klasörünü klonlayın veya indirin
+### 1️⃣ Reposu klonla veya indir
 
 ```bash
-git clone <repo-adresi>
-cd instaflash_backend
-```
-
+git clone https://github.com/Atamandrl/instaflash.git
+cd instaflash/backend
 Veya klasörü ZIP olarak alıp açın.
 
----
-
-### 2️⃣ Sanal ortam oluşturun
-
+2️⃣ Sanal ortam (virtual environment) oluştur
 Windows:
-```powershell
+
+powershell
+Kopyala
 python -m venv venv
 venv\Scripts\activate
-```
-
 Mac/Linux:
-```bash
+
+bash
+Kopyala
 python3 -m venv venv
 source venv/bin/activate
-```
-
----
-
-### 3️⃣ Gerekli paketleri yükleyin
-
-```bash
+3️⃣ Gerekli Python paketlerini yükle
+bash
+Kopyala
 pip install -r requirements.txt
-```
+Eğer requirements.txt yoksa manuel yükleyin:
 
-Eğer `requirements.txt` yoksa:
-
-```bash
+bash
+Kopyala
 pip install fastapi uvicorn python-dotenv requests
-```
-
----
-
-### 4️⃣ Ortam değişkenlerini tanımlayın
-
-Proje kök klasöründe `.env` dosyası oluşturun:
-
-> `.env.example` dosyasını kopyalayın:
+4️⃣ Ortam değişkeni dosyasını oluştur
+Önce .env.example dosyasını .env olarak kopyalayın:
 
 Windows:
-```powershell
+
+powershell
+Kopyala
 copy .env.example .env
-```
-
 Mac/Linux:
-```bash
+
+bash
+Kopyala
 cp .env.example .env
-```
+Ardından .env dosyasını açıp kendi API key'inizi yazın:
 
-`.env` dosyasını açıp kendi API anahtarınızı yazın:
-
-```
+ini
+Kopyala
 GEMINI_API_KEY=YOUR_API_KEY_HERE
-```
+Her ekip üyesi kendi key’ini kullanmalıdır.
 
-Her ekip üyesi **kendi API key'ini kullanmalıdır.**
-
----
-
-### 5️⃣ Sunucuyu başlatın
-
-```bash
+5️⃣ Sunucuyu başlat
+bash
+Kopyala
 uvicorn main:app --reload
-```
+Başarılı olursa şu mesaj çıkar:
 
-Başarılı başladığında şu çıkışı görürsünüz:
-
-```
+nginx
+Kopyala
 Uvicorn running on http://127.0.0.1:8000
-```
+🧪 API Testi
+Tarayıcıdan şunu açın:
 
----
-
-## 🧪 API Testi
-
-Tarayıcıda açın:
-```
+arduino
+Kopyala
 http://127.0.0.1:8000/docs
-```
-
-Swagger arayüzünde `POST /generate-cards` endpointini deneyin.
+Swagger arayüzünde POST /generate-cards endpoint’ini deneyin.
 
 Örnek istek:
-
-```json
+json
+Kopyala
 {
-  "topic": "Photosynthesis"
+  "topic": "General Knowledge"
 }
-```
-
 Örnek yanıt:
-
-```json
+json
+Kopyala
 {
   "cards": [
-    {"question": "...", "answer": "..."},
-    ...
+    {"question": "What is the capital of France?", "answer": "Paris"},
+    {"question": "...", "answer": "..."}
   ]
 }
-```
+⚙️ Dosya Yapısı
+bash
+Kopyala
+instaflash/
+├── backend/
+│   ├── main.py            # FastAPI uygulaması
+│   ├── .env.example       # Ortam değişkeni şablonu
+│   ├── requirements.txt   # Gerekli kütüphaneler
+│   └── README.md          # Bu dosya
+⚠️ Notlar
+.env dosyanızı GitHub’a yüklemeyin (gizli API key içerir)
 
----
+API key’i şuradan alınabilir:
+👉 https://makersuite.google.com/app/apikey
 
-## ⚙️ Dosya Yapısı
+Ortak key kullanılacaksa Google Console’dan kota limiti belirleyin
 
-```
-instaflash_backend/
-├── main.py              # FastAPI uygulaması
-├── .env                 # API anahtarınız (repoya koymayın)
-├── .env.example         # Şablon dosya
-├── requirements.txt     # Gerekli Python paketleri
-└── README.md            # Bu dosya
-```
-
----
-
-## ⚠️ Önemli Notlar
-
-- `.env` dosyanızı repoya eklemeyin.
-- Her ekip üyesi kendi Google API key'ini oluşturabilir:
-  [https://makersuite.google.com/app/apikey](https://makersuite.google.com/app/apikey)
-- Ortak API key kullanılacaksa Google Cloud Console'da kota limiti belirleyin.
-- Yanlışlıkla key'i paylaşırsanız hemen silip yeni key oluşturun.
-
----
-
+Key kazara paylaşılırsa hemen silip yenisini oluşturun
 
