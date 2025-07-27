@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'Categories.dart';
 import 'Courses.dart';
 
+
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
@@ -25,7 +26,7 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Color(0xFFC2DCDF),
         automaticallyImplyLeading: true,
       ),
       body: Padding(
@@ -38,7 +39,7 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 60,
-                    backgroundImage: AssetImage("images/profile.png"),
+                    backgroundImage: const AssetImage("images/pro.png"),
                   ),
                   const SizedBox(height: 16),
                   Text(
@@ -59,14 +60,16 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 32),
             const Text(
               "Your Courses",
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 16),
+
+            // SCROLL COURSES
             SizedBox(
-              height: 160,
+              height: 210,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: categories.length,
@@ -85,8 +88,8 @@ class ProfilePage extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      width: 216,
-                      height: 160,
+                      width: 260,
+                      padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
@@ -98,71 +101,74 @@ class ProfilePage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      padding: const EdgeInsets.all(12),
-                      child: Row(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            width: 98,
-                            height: 88,
-                            decoration: BoxDecoration(
-                              color: Colors.purple[200],
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-                              child: Image.asset(
-                                "images/${category.categori_name.toLowerCase()}.png",
-                                fit: BoxFit.cover,
+                          Row(
+                            children: [
+                              Container(
+                                width: 96,
+                                height: 96,
+                                decoration: BoxDecoration(
+                                  color: Colors.purple[100],
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(16),
+                                  child: Image.asset(
+                                    "images/${category.categori_name.toLowerCase()}.jpg",
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  category.categori_name,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                                const SizedBox(height: 8),
-                                LinearProgressIndicator(
-                                  value: progress,
-                                  backgroundColor: Colors.grey[300],
-                                  color: const Color(0xFFCC7B74),
-                                  minHeight: 6,
-                                ),
-                                const SizedBox(height: 12),
-                                SizedBox(
-                                  width: double.infinity,
-                                  height: 32,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.brown[300],
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(12),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      category.categori_name,
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                      padding: EdgeInsets.zero,
                                     ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => Courses(category: category),
-                                        ),
-                                      );
-                                    },
-                                    child: const Text(
-                                      "Continue Learning",
-                                      style: TextStyle(fontSize: 14),
+                                    const SizedBox(height: 8),
+                                    LinearProgressIndicator(
+                                      value: progress,
+                                      backgroundColor: Colors.grey[300],
+                                      color: const Color(0xFFCC7B74),
+                                      minHeight: 6,
                                     ),
-                                  ),
+                                  ],
                                 ),
-                              ],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          SizedBox(
+                            width: double.infinity,
+                            height: 36,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.brown[300],
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                padding: EdgeInsets.zero,
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Courses(category: category),
+                                  ),
+                                );
+                              },
+                              child: const Text(
+                                "Continue Learning",
+                                style: TextStyle(fontSize: 14, color: Colors.white),
+                              ),
                             ),
                           ),
                         ],
@@ -172,10 +178,11 @@ class ProfilePage extends StatelessWidget {
                 },
               ),
             ),
-            const Spacer(),
+
+            // EXIT
             ElevatedButton(
               onPressed: () {
-                // Log out veya başka fonksiyon eklenebilir
+                // Logout
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
@@ -195,3 +202,4 @@ class ProfilePage extends StatelessWidget {
     );
   }
 }
+

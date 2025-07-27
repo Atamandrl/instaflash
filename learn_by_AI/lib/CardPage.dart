@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Homepage.dart';
 
 class CardPage extends StatelessWidget {
   const CardPage({super.key});
@@ -9,6 +10,24 @@ class CardPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Question"),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context); // Geri dön
+          },
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.home, color: Colors.white),
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => const Homepage()),
+                    (route) => false,
+              );
+            },
+          ),
+        ],
       ),
       body: Center(
         child: Column(
