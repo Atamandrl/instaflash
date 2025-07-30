@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'HomePage.dart';
-
+import 'Homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Learn by AI',
-      debugShowCheckedModeBanner: false,
+      title: 'Instaflash',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.deepPurple,
       ),
       home: const Homepage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
