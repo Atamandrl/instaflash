@@ -51,7 +51,35 @@ Kullanıcının arayüzden butonla konu seçerek kart alacağı deneyimi tasarla
 - Flutter ile uyumlu yapı kuruldu
 
 </details>
+<details> <summary>✅ Sprint 3 – Kategoriye Özel Konu Akışı ve Tam Entegrasyon</summary>
+🎯 Hedef:
+Her kategori için özel alt başlıklar (konu) ile tam akış sağlamak ve Flutter arayüzünden API’dan dinamik flashcard çekimini başarıyla gerçekleştirmek.
 
+🔧 Yapılanlar:
+✅ Ana sayfa ve Courses (Dersler) sayfası arası geçiş tamamen güncellendi
+
+✅ Her kategoriye ait alt başlıklar (ör. Matematik → Cebir, Geometri…) dinamik şekilde ekrana getirildi
+
+✅ CardPage, API’dan gelen kartları başarılı şekilde ve scrollable olarak listeliyor
+
+✅ Flutter üzerinden seçilen konu başlığıyla backend’e istek atılıyor, doğru kartlar dönüyor
+
+✅ Backend ile Flutter arası veri yapısı uyumu ve hata kontrolü güçlendirildi
+
+✅ Boş ya da hatalı veri geldiğinde kullanıcıya mesaj gösteriliyor
+
+✅ Kodda sadeleştirme ve kullanılmayan eski kodların temizliği yapıldı
+
+✅ Tüm değişiklikler force push ile güncel olarak repoya aktarıldı
+
+📦 Çıktı:
+Uygulamada kategori → alt başlık → kartlar akışı sorunsuz tamamlandı
+
+Flutter arayüzünden farklı kategorilere tıklanınca o kategoriye özel konular ve kartlar geliyor
+
+Backend ve Flutter tamamen entegre çalışıyor
+
+</details>
 <details> <summary>🗺️ Yol Haritası (Güncel)</summary>
 🔜 Planlanan Geliştirmeler
  Sprint 3 – Flashcard’ların kalıcı gösterimi
@@ -144,6 +172,36 @@ Cards show the question on the front and answer on the back (flip effect)
 API is now compatible with the planned UI experience
 
 Flutter-ready backend completed
+</details>
+
+<details> <summary>✅ Sprint 3 – Category-Based Subtopics & Full Integration</summary>
+🎯 Goal:
+Achieve a seamless flow for each main category with unique subtopics, and enable fully dynamic flashcard retrieval from the API via the Flutter interface.
+
+🔧 Tasks Completed:
+✅ Home page and Courses (lessons) page navigation fully updated
+
+✅ Category-specific subtopics (e.g., Math → Algebra, Geometry…) now displayed dynamically
+
+✅ CardPage successfully lists API flashcards with scrollable layout
+
+✅ Backend requests are sent with the selected subtopic and return the correct cards
+
+✅ Data structure compatibility and error handling improved between backend and Flutter
+
+✅ User receives clear feedback for empty or faulty API responses
+
+✅ Code simplified and unused/old code removed for maintainability
+
+✅ All changes force-pushed to the repository as the latest, authoritative version
+
+📦 Outcome:
+The full flow—category → subtopic → cards—now works flawlessly in the app
+
+Selecting any category displays its unique subtopics and fetches flashcards accordingly
+
+Full, stable integration between backend and Flutter
+
 </details>
 
 <details> <summary>🗺️ Roadmap (Updated)</summary>
